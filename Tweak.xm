@@ -1,5 +1,6 @@
 #include <UIKit/UIKit.h>
 #include <Foundation/Foundation.h>
+#include <roothide.h>
 
 BOOL prefs_only_actionless = NO;
 BOOL prefs_dismiss_alerts = YES;

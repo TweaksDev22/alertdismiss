@@ -1,5 +1,8 @@
-ARCHS := armv7 armv7s arm64 arm64e
-TARGET := iphone:clang:11.2:7.0
+ARCHS = arm64 arm64e
+TARGET = iphone:11.2:7:0
+THEOS_PACKAGE_SCHEME=roothide
+
+
 
 include $(THEOS)/makefiles/common.mk
 
@@ -8,6 +11,8 @@ $(BUNDLE_NAME)_FILES = ALDMRootListController.m
 $(BUNDLE_NAME)_INSTALL_PATH = /Library/PreferenceBundles
 $(BUNDLE_NAME)_FRAMEWORKS = UIKit
 $(BUNDLE_NAME)_PRIVATE_FRAMEWORKS = Preferences
+$(BUNDLE_NAME)_LDFLAGS += -lroothide
+$(BUNDLE_NAME)_CODESIGN_FLAGS = -Sentitlements.plist
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 
